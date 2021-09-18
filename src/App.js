@@ -11,44 +11,52 @@ import Checkout from "./pages/checkout/checkout.component.jsx";
 const App = () => {
 
   const [cartItems, setCartItems] = useState([]);
-  const [cart, setCart] = useState([])
-
-  let localCart = localStorage.getItem("cart");
 
   useEffect(() => {
+    let localCart = localStorage.getItem('cart');
     localCart = JSON.parse(localCart);
-    if (localCart) setCart(localCart)
 
-  }, [])
+    if (localCart) {
+      setCartItems(localCart)
+    }
 
-  const addToCart = (clickedItem) => {
-    setCartItems(prev => {
-      const isItemInCart = prev.find(item => item.title === clickedItem.title);
+  }, []);
 
-      if (isItemInCart) {
-        return prev.map(item =>
-          item.id === clickedItem.id
-            ? { ...item, amount: item.amount + 1 }
-            : item
-        );
-      }
-      return [...prev, { ...clickedItem, amount: 1 }];
-    });
+  const addToCart = async (clickedItem) => {
+    const prev = [...cartItems];
+    const isItemInCart = prev.find(item => item.title === clickedItem.title);
+
+    if (isItemInCart) {
+      const newCart = prev.map(item =>
+        item.title === clickedItem.title
+          ? { ...item, amount: item.amount + 1 }
+          : item
+      );
+      setCartItems(newCart);
+      localStorage.setItem('cart', JSON.stringify(newCart));
+      return;
+    }
+
+    const newCart = [...prev, { ...clickedItem, amount: 1 }];
+    setCartItems(newCart);
+    localStorage.setItem('cart', JSON.stringify(newCart));
   };
 
-  const removeFromCart = (id) => {
-    setCartItems(prev =>
-      prev.reduce((acc, item) => {
-        if (item.id === id) {
-          if (item.amount === 1) {
-            return acc
-          };
-          return [...acc, { ...item, amount: item.amount - 1 }];
-        } else {
-          return [...acc, item];
-        }
-      }, [])
-    );
+  const removeFromCart = (title) => {
+    const prev = [...cartItems];
+
+    const newCart = prev.reduce((acc, item) => {
+      if (item.title === title) {
+        if (item.amount === 1) {
+          return acc;
+        };
+        return [...acc, { ...item, amount: item.amount - 1 }];
+      }
+      return [...acc, item];
+    }, [])
+
+    setCartItems(newCart);
+    localStorage.setItem('cart', JSON.stringify(newCart));
   };
 
   return (

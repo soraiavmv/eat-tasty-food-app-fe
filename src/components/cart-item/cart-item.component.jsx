@@ -9,7 +9,7 @@ const CartItem = ({ item, addToCart, removeFromCart }) => {
                 <p>Total: {(item.amount * item.price).toFixed(2)}€</p>
             </div>
             <div className='items-amount'>
-                <Button handleClick={() => removeFromCart(item.id)} text='-' />
+                <Button handleClick={() => removeFromCart(item.title)} text='-' />
                 <p>{item.amount}</p>
                 <Button handleClick={() => addToCart(item)} text='+' />
             </div>
