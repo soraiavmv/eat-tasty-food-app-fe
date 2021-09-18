@@ -1,0 +1,35 @@
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.information {
+    float: left;
+    margin-right: 300px;
+}
+
+.quantity {
+    float: right;
+    display: flex;
+}
+
+.quantity > p {
+    margin-left: 5px;
+    margin-right: 5px;
+    font-weight: bolder;
+}
+
+.quantity > button {
+    background-color: white;
+}
+
+.quantity > button:hover {
+    background-color: white;
+}
+
+@media screen and (max-width: 900px) {
+    .information {
+        margin-right: 0;
+    }
+}

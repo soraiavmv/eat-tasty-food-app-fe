@@ -1,0 +1,15 @@
+.checkout {
+    width: 80%;
+    margin: auto;
+    padding: 10px;
+}
+
+.cart-items {
+    float: left;
+}
+
+.total {
+    float: right;
+    padding: 50px;
+}
+
