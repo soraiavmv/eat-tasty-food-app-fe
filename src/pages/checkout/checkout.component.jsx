@@ -1,4 +1,6 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import Button from '../../components/button/button.component';
 import CartItem from '../../components/cart-item/cart-item.component';
 import './checkout.styles.css';
 
@@ -23,6 +25,7 @@ const Checkout = ({ cartItems, addToCart, removeFromCart }) => {
             </div>
             <div className='total'>
                 <h2>Total: {total(cartItems).toFixed(2)}€</h2>
+                <NavLink to='/payment'><Button text='COMPRAR' /></NavLink>
             </div>
         </div>
     );
