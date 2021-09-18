@@ -25,6 +25,11 @@ const Menu = () => {
             id: 4,
             description: 'sobremesas',
             image: 'https://tinyurl.com/4ddwsasx',
+        },
+        {
+            id: 5,
+            description: 'bebidas',
+            image: 'https://tinyurl.com/nbx5chup',
         }
     ]);
 

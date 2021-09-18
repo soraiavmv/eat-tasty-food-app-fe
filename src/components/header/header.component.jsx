@@ -5,20 +5,23 @@ import { ReactComponent as Cart } from './assets/cart.svg'
 
 import './header.styles.css';
 
-const Header = () => (
-    <header className='header'>
-        <NavLink className='logo-container' to='/'>
-            <Logo className='logo' />
-        </NavLink>
-        <div className='options'>
-            <NavLink className='option' to='/cart'>
-                <Cart className='cart' />
+const Header = () => {
+
+    return (
+        <header className='header'>
+            <NavLink className='logo-container' to='/'>
+                <Logo className='logo' />
             </NavLink>
-            <NavLink className='option' to='/login'>
-                LOGIN
-            </NavLink>
-        </div>
-    </header >
-)
+            <div className='options'>
+                <NavLink className='option' to='/cart' >
+                    <Cart className='cart' />
+                </NavLink>
+                <NavLink className='option' to='/login' >
+                    LOGIN
+                </NavLink>
+            </div>
+        </header >
+    );
+}
 
 export default Header;

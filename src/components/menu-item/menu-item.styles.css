@@ -1,7 +1,7 @@
 .menu-item {
     min-width: 30%;
     height: 240px;
-    flex: 1 1 auto;
+    flex: 25%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9,8 +9,16 @@
     overflow: hidden;
 }
   
-@media screen and (max-width: 830px) {
-    .menu-item { width: 100%;}
+@media screen and (max-width: 900px) {
+    .menu-item { 
+        flex: 100%;
+        max-width: 100%;
+    }
+
+    .background-image {
+        margin: 0 auto;
+        padding: 0 150px;
+    }
 }
   
 .menu-item:hover {

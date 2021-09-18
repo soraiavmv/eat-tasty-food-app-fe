@@ -36,3 +36,10 @@
     font-size: x-large;
     cursor: pointer;
 }
+
+@media (max-width: 650px) {
+    .options {
+        flex-direction: column;
+        justify-content: space-between
+    }
+}

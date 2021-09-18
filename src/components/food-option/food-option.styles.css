@@ -1,0 +1,51 @@
+.food-option {
+    min-width: 30%;
+    width: 75%;
+    align-items: center;
+    margin: 0 7.5px 15px;
+    overflow: hidden;
+    margin-top: 20px;
+} 
+
+@media screen and (max-width: 900px) {
+    .details {
+        padding-right: 15px;
+    }
+}
+
+.food-option > div { 
+    flex: 1; 
+}
+
+.details {
+    float: left;
+    max-width: 50%;
+    text-align: left;
+}
+
+.title {
+    color: black;
+    font-weight: bolder;
+    margin-top: 0;
+}
+
+.photo {
+    float: right;
+    width: 50%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.9;
+    height: 300px;
+}
+
+.alergens img {
+    width: 30px;
+    height: 20px;
+    padding-right: 5px;
+}
+
+.price {
+    font-weight: bolder;
+
+}
