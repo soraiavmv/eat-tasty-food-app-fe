@@ -1,0 +1,11 @@
+.message {
+    text-align: center;
+}
+
+.message-title {
+    padding-bottom: 15px;
+}
+
+.message-footer {
+    padding-top: 15px;
+}

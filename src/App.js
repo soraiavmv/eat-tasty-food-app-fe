@@ -4,10 +4,9 @@ import Header from "./components/header/header.component.jsx";
 import HomePage from "./pages/homepage/homepage.component.jsx";
 import FoodMenu from "./pages/food-menu/food-menu.component.jsx";
 import Login from "./pages/login-register/login.component.jsx";
+import Checkout from "./pages/checkout/checkout.component.jsx";
 
 import './App.css';
-import Checkout from "./pages/checkout/checkout.component.jsx";
-import Payment from "./pages/payment/payment.component.jsx";
 
 const App = () => {
 
@@ -69,9 +68,6 @@ const App = () => {
           <Route exact={true} path="/login" component={Login} />
           <Route exact={true} path="/cart">
             <Checkout cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} />
-          </Route>
-          <Route exact={true} path="/payment">
-            <Payment />
           </Route>
           <Route exact={true} path="/entradas">
             <FoodMenu category='entrada' addToCart={addToCart} />

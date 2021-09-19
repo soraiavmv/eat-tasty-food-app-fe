@@ -1,0 +1,43 @@
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-header, .modal-footer {
+    padding: 10px;
+    text-align: center;
+}
+
+.modal-title {
+    margin: 0;
+}
+
+.modal-body {
+    padding: 10px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.content {
+    width: 500px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.cancel > button:hover {
+    background-color: rgb(240, 125, 125);
+}
+
+.confirm > button:hover {
+    background-color: rgb(176, 211, 127);
+}
