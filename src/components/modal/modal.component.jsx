@@ -7,8 +7,8 @@ import './modal.styles.css';
 
 const Modal = ({ onClose }) => {
 
-    const [paymentSucceeded, setPaymentSucceeded] = useState(true);
-    const [formOk, setFormOk] = useState(true);
+    const [paymentSucceeded, setPaymentSucceeded] = useState(false);
+    const [formOk, setFormOk] = useState(false);
 
     const submitPayment = () => {
         localStorage.clear();
