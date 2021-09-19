@@ -3,15 +3,18 @@ import Cards from 'react-credit-cards';
 
 import './form.styles.css';
 import 'react-credit-cards/es/styles-compiled.css';
+import { validateCardNumber, validateCVC, validateExpirationDate } from './util/input-verifications';
 
 
-const Form = () => {
+const Form = ({ confirmForm }) => {
 
     const [cvc, setCvc] = useState('');
     const [expirationDate, setExpirationDate] = useState('');
     const [name, setName] = useState('');
     const [cardNumber, setCardNumber] = useState('');
     const [focus, setFocus] = useState('');
+    const [hasErrors, setHasErrors] = useState('false');
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleInputFocus = (e) => {
         setFocus(e.target.name);
@@ -24,6 +27,28 @@ const Form = () => {
                     setExpirationDate(e.target.value);
     }
 
+    const validateInput = () => {
+        if (!validateCardNumber(cardNumber)) {
+            setHasErrors(true);
+            setErrorMessage('Invalid Card Number.');
+            return;
+        }
+
+        if (!validateCVC(cvc)) {
+            setHasErrors(true);
+            setErrorMessage('Invalid CVC.');
+            return;
+        }
+
+        if (!validateExpirationDate(expirationDate)) {
+            setHasErrors(true);
+            setErrorMessage('Invalid Date. Format: MM/YY.');
+            return;
+        }
+
+        setHasErrors(false);
+        confirmForm();
+    }
 
     return (
         <div className='payment'>
@@ -34,7 +59,10 @@ const Form = () => {
                 name={name}
                 number={cardNumber}
             />
-            <form className='payment-form'>
+            <form
+                className='payment-form'
+                onBlur={validateInput}
+            >
                 <input
                     type='text'
                     name='number'
@@ -66,7 +94,14 @@ const Form = () => {
                         onFocus={handleInputFocus}
                     />
                 </div>
+                {hasErrors ?
+                    <div>
+                        <h4 className='error'>{errorMessage}</h4>
+                    </div> :
+                    null
+                }
             </form>
+
         </div>
     );
 }

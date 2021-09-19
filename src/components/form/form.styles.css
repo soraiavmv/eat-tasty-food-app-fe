@@ -22,3 +22,8 @@
 .smaller-input {
     display: flex;
 }
+
+.error {
+    font-family: inherit;
+    color: rgb(240, 125, 125);;
+}

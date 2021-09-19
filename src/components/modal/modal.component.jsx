@@ -27,7 +27,7 @@ const Modal = ({ onClose }) => {
                 <div className='modal-body'>
                     {paymentSucceeded ?
                         <Message /> :
-                        <Form confirmPayment={() => setFormOk(true)} />
+                        <Form confirmForm={() => setFormOk(true)} />
                     }
                 </div>
                 <div className='modal-footer'>
