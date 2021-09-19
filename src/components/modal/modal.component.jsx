@@ -5,7 +5,7 @@ import Message from '../message/message.component';
 
 import './modal.styles.css';
 
-const Modal = ({ onClose }) => {
+const Modal = ({ onClose, onPayment }) => {
 
     const [paymentSucceeded, setPaymentSucceeded] = useState(false);
     const [formOk, setFormOk] = useState(false);
@@ -13,6 +13,7 @@ const Modal = ({ onClose }) => {
     const submitPayment = () => {
         localStorage.clear();
         setPaymentSucceeded(true);
+        onPayment();
     }
 
     return (

@@ -67,7 +67,7 @@ const App = () => {
           <Route exact={true} path="/" component={HomePage} />
           <Route exact={true} path="/login" component={Login} />
           <Route exact={true} path="/cart">
-            <Checkout cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} />
+            <Checkout cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} onPayment={() => setCartItems([])} />
           </Route>
           <Route exact={true} path="/entradas">
             <FoodMenu category='entrada' addToCart={addToCart} />
