@@ -33,7 +33,7 @@ const Form = ({ confirmForm }) => {
                     setExpirationDate(e.target.value);
     }
 
-    // input validation
+    // input validation (there is no name validation as in real life apps often there isn't)
     // error message setting
     const validateInput = () => {
         if (!validateCardNumber(cardNumber)) {
