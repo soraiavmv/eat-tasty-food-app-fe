@@ -70,6 +70,7 @@ const App = () => {
   };
 
   return (
+    // App routes
     <BrowserRouter>
       <Header />
       <Switch>

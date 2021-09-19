@@ -8,18 +8,20 @@ import './food-menu.styles.css';
 
 const FoodMenu = ({ category, addToCart }) => {
 
-    const [sections, setSections] = useState([]);
+    const [foodOptions, setFoodOptions] = useState([]);
 
+    // fetch category specific items from API
+    // runs when component mounts on the DOM
     useEffect(() => {
         fetch(`${config['api-url']}/${category}/items`)
             .then((response) => response.json())
-            .then((result) => { setSections(result) });
+            .then((result) => { setFoodOptions(result) });
     }, [category]);
 
     return (
         <div className='menu'>
-            {typeof sections === 'object' ?
-                sections.map(({ id, ...props }) => {
+            {typeof foodOptions === 'object' ? // check if category has items
+                foodOptions.map(({ id, ...props }) => {
                     return <FoodOption key={id} {...props} addToCart={addToCart} />
                 }) :
                 <div className='soon'>

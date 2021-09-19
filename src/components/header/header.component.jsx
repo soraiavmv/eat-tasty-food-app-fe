@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { ReactComponent as Logo } from './assets/logo.svg'
-import { ReactComponent as Cart } from './assets/cart.svg'
+import logo from './assets/logo.svg'
+import cart from './assets/cart.svg'
 
 import './header.styles.css';
 
@@ -10,11 +10,11 @@ const Header = () => {
     return (
         <header className='header'>
             <NavLink className='logo-container' to='/'>
-                <Logo className='logo' />
+                <img className='logo' src={logo} alt='app logo' />
             </NavLink>
             <div className='options'>
                 <NavLink className='option' to='/cart' >
-                    <Cart className='cart' />
+                    <img className='cart' src={cart} alt='cart icon' />
                 </NavLink>
                 <NavLink className='option' to='/login' >
                     LOGIN
