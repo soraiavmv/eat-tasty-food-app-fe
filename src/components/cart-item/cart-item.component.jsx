@@ -7,6 +7,7 @@ const CartItem = ({ item, addToCart, removeFromCart }) => {
         <div className='cart-item'>
             <div className='information'>
                 <h3>{item.title}</h3>
+                {/* calculate total price for item quantity */}
                 <p>Total: {(item.amount * item.price).toFixed(2)}€</p>
             </div>
             <div className='quantity'>

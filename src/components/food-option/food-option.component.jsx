@@ -22,13 +22,14 @@ const FoodOption = ({ title, price, description, picture, alergens, addToCart })
                 <div>
                     <p className='desc'>{description}</p>
                     <div className='alergens'>
-                        {alergens ? alergens.map(alergen => {
+                        {alergens ? alergens.map(alergen => { // map alergens to alergen icons
                             return <img key={alergen}
                                 src={alergen === 'frutos secos' ?
                                     alergenIcons['frutosSecos'] :
                                     alergenIcons[alergen]} alt={alergen} />
                         }) :
-                            []}
+                            [] // if alergens absent, return empty array
+                        }
                     </div>
                 </div>
                 <div>

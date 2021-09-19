@@ -5,6 +5,8 @@ import './menu.styles.css';
 
 const Menu = () => {
 
+    // hard coded sections, considering these will be the only types of products this app will sell
+    // may be changed in the future
     const [sections] = useState([
         {
             id: 1,

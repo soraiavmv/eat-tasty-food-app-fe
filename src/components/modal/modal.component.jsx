@@ -7,13 +7,16 @@ import './modal.styles.css';
 
 const Modal = ({ onClose, onPayment }) => {
 
+    // if payment has been made, a message will be rendered
     const [paymentSucceeded, setPaymentSucceeded] = useState(false);
+
+    // confirm button will only appear once form fields have no errors
     const [formOk, setFormOk] = useState(false);
 
     const submitPayment = () => {
-        localStorage.clear();
+        localStorage.clear(); // clear local storage; when app is refreshed, no items will be in cart
         setPaymentSucceeded(true);
-        onPayment();
+        onPayment(); // change checkout page state
     }
 
     return (
@@ -32,11 +35,12 @@ const Modal = ({ onClose, onPayment }) => {
                     }
                 </div>
                 <div className='modal-footer'>
+                    {/* change button styling, according to state */}
                     <div className={paymentSucceeded ? '' : 'cancel'}>
                         <Button text={paymentSucceeded ? 'Voltar' : 'Cancelar'} handleClick={onClose} />
                     </div>
 
-                    {formOk && !paymentSucceeded ?
+                    {formOk && !paymentSucceeded ? // once payment is submitted, submit button disappears
                         <div className='confirm'>
                             <Button text='Confirmar' handleClick={submitPayment} />
                         </div> :

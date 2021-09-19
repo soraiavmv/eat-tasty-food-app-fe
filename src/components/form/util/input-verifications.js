@@ -1,14 +1,9 @@
-
-
 export function validateCVC(value) {
-    const maxLength = 3;
-    const newVal = value.replace(/ /g, '');
+    const maxLength = 3; // consider that cvc has a maximum of 3 digits
+    const newVal = value.replace(/ /g, ''); // remove any white spaces from string
 
-    if (newVal.length !== maxLength) {
-        return false;
-    }
-
-    if (isNaN(parseInt(newVal, 10))) {
+    // value validations
+    if (newVal.length !== maxLength || isNaN(parseInt(newVal, 10))) {
         return false;
     }
 
@@ -16,9 +11,10 @@ export function validateCVC(value) {
 }
 
 export function validateExpirationDate(value) {
-    const maxLength = value.charAt(2) === '/' ? 5 : 4;
-    const newVal = value.replace(/ /g, '');
+    const maxLength = value.charAt(2) === '/' ? 5 : 4; // consider that date is formatted as MM/YY with / being optional
+    const newVal = value.replace(/ /g, ''); // remove any white spaces from string
 
+    // if length is incorrect there's no need to do execute further logic
     if (newVal.length !== maxLength) {
         return false;
     }
@@ -28,6 +24,7 @@ export function validateExpirationDate(value) {
     const currentYear = new Date().getFullYear() - 2000;
     const currentMonth = new Date().getMonth();
 
+    // value validations
     if (isNaN(month) ||
         isNaN(year) ||
         month > 12 ||
@@ -41,14 +38,11 @@ export function validateExpirationDate(value) {
 }
 
 export function validateCardNumber(value) {
-    const maxLength = 16;
-    const newVal = value.replace(/ /g, '');
+    const maxLength = 16; // consider that card number has exactly 16 digits
+    const newVal = value.replace(/ /g, ''); // remove any white spaces from string
 
-    if (newVal.length !== maxLength) {
-        return false;
-    }
-
-    if (isNaN(parseInt(newVal, 10))) {
+    // value validations
+    if (newVal.length !== maxLength || isNaN(parseInt(newVal, 10))) {
         return false;
     }
 
