@@ -28,3 +28,6 @@ npm start
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## Disclaimer:
+This is a dummy app; payment isn't connected to any backend implementation.
